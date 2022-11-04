@@ -7,7 +7,7 @@ const teamControler = new TeamControler(teamService);
 
 const router = Router();
 
-router.get('/', teamControler.findAll);
+router.get('/', teamControler.getAll);
 router.get('/:id', teamControler.findById);
 
 export default router;

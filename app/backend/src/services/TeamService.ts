@@ -5,7 +5,7 @@ import Team from '../database/models/Teams';
 class TeamService {
   constructor(private model = Team) { }
 
-  async findAll(): Promise<ITeamID[]> {
+  async getAll(): Promise<ITeamID[]> {
     const teams = await this.model.findAll();
     return teams;
   }

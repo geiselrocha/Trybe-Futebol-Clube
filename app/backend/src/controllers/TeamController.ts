@@ -8,8 +8,8 @@ class TeamControler {
     this.service = service;
   }
 
-  findAll = async (_req: Request, res: Response) => {
-    const teams = await this.service.findAll();
+  getAll = async (_req: Request, res: Response) => {
+    const teams = await this.service.getAll();
     res.status(200).json(teams);
   };
 

@@ -9,10 +9,10 @@ interface IUserID extends IUser {
   id: number;
 }
 
-interface IuserService {
+interface IUserService {
   findAll: IUserID
 }
 
 export default IUser;
 
-export { IUserID, IuserService };
+export { IUserID, IUserService };
