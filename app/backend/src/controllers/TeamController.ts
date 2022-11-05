@@ -1,6 +1,6 @@
+import 'express-async-errors';
 import { Request, Response } from 'express';
 import TeamService from '../services/TeamService';
-import 'express-async-errors';
 
 class TeamControler {
   service: TeamService;
