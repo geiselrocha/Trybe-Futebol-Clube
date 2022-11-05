@@ -66,5 +66,14 @@ class MatchService {
     await this.model.update({ inProgress: false }, { where: { id } });
     return { ...match, inProgress: false };
   }
+
+  async updateMatch(id: number, homeTeamGoals: number, awayTeamGoals: number): Promise<IMatchID> {
+    const match = await this.model.findByPk(id);
+    if (!match) {
+      throw new CustomError('Invalid Match Id', 404);
+    }
+    await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+    return { ...match, inProgress: false };
+  }
 }
 export default MatchService;
