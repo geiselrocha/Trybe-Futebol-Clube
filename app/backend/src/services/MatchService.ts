@@ -40,9 +40,6 @@ class MatchService {
         { model: Teams, as: 'teamAway', attributes: ['teamName'] },
       ],
     });
-    if (!matches) {
-      throw new CustomError('Match not Found', 404);
-    }
     return matches;
   }
 
@@ -59,6 +56,15 @@ class MatchService {
     }
     const dataValues = await this.model.create(match);
     return dataValues;
+  }
+
+  async finishMatch(id: number): Promise<IMatchID> {
+    const match = await this.model.findByPk(id);
+    if (!match) {
+      throw new CustomError('Invalid Match Id', 404);
+    }
+    await this.model.update({ inProgress: false }, { where: { id } });
+    return { ...match, inProgress: false };
   }
 }
 export default MatchService;

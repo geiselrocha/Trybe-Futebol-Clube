@@ -1,5 +1,5 @@
 import 'express-async-errors';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import MatchService from '../services/MatchService';
 import CustomError from '../utils/CustomError';
 
@@ -38,6 +38,12 @@ class MatchControler {
     const match = { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, inProgress: true };
     const matches = await this.service.create(match, authorization);
     res.status(201).json(matches);
+  };
+
+  finishMatch = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await this.service.finishMatch(+id);
+    res.status(200).json({ message: 'Finished' });
   };
 }
 

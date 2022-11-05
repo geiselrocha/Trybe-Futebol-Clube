@@ -7,9 +7,10 @@ const matchControler = new MatchControler(matchService);
 
 const router = Router();
 
+router.get('/', matchControler.findByProgress);
 router.get('/', matchControler.getAll);
 router.get('/:id', matchControler.findById);
-router.get('/', matchControler.findByProgress);
 router.post('/', matchControler.create);
+router.patch('/:id/finish', matchControler.finishMatch);
 
 export default router;
