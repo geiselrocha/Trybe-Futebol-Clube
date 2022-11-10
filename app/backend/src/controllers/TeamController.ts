@@ -2,7 +2,7 @@ import 'express-async-errors';
 import { Request, Response } from 'express';
 import TeamService from '../services/TeamService';
 
-class TeamControler {
+class TeamController {
   service: TeamService;
   constructor(service: TeamService) {
     this.service = service;
@@ -20,4 +20,4 @@ class TeamControler {
   };
 }
 
-export default TeamControler;
+export default TeamController;

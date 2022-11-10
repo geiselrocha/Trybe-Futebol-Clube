@@ -1,17 +1,17 @@
 import { Router } from 'express';
 import MatchService from '../services/MatchService';
-import MatchControler from '../controllers/MatchController';
+import MatchController from '../controllers/MatchController';
 
 const matchService = new MatchService();
-const matchControler = new MatchControler(matchService);
+const matchController = new MatchController(matchService);
 
 const router = Router();
 
-router.get('/', matchControler.findByProgress);
-router.get('/', matchControler.getAll);
-router.get('/:id', matchControler.findById);
-router.post('/', matchControler.create);
-router.patch('/:id/finish', matchControler.finishMatch);
-router.patch('/:id', matchControler.updateMatch);
+router.get('/', matchController.findByProgress);
+router.get('/', matchController.getAll);
+router.get('/:id', matchController.findById);
+router.post('/', matchController.create);
+router.patch('/:id/finish', matchController.finishMatch);
+router.patch('/:id', matchController.updateMatch);
 
 export default router;

@@ -3,13 +3,13 @@ import { Request, Response, NextFunction } from 'express';
 import MatchService from '../services/MatchService';
 import CustomError from '../utils/CustomError';
 
-class MatchControler {
+class MatchController {
   service: MatchService;
   constructor(service: MatchService) {
     this.service = service;
   }
 
-  getAll = async (req: Request, res: Response) => {
+  getAll = async (_req: Request, res: Response) => {
     const matches = await this.service.getAll();
     res.status(200).json(matches);
   };
@@ -54,4 +54,4 @@ class MatchControler {
   };
 }
 
-export default MatchControler;
+export default MatchController;
