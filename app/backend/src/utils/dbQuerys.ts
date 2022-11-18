@@ -59,7 +59,7 @@ FROM TRYBE_FUTEBOL_CLUBE.matches AS matches
 INNER JOIN TRYBE_FUTEBOL_CLUBE.teams AS teams
 ON teams.id = matches.away_team
 WHERE matches.in_progress <> 1
-GROUP BY teams.team_name))
+GROUP BY teams.team_name)) AS bothteams
 GROUP BY name
 ORDER BY 
   totalPoints DESC, 
